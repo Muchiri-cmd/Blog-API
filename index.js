@@ -33,7 +33,7 @@ app.get("/users/:id", async (req, res) => {
         id,
       },
     });
-    res.status(200).json({user})
+    res.status(200).json({ user });
   } catch (error) {
     console.log(error);
     res.status(500).json({
@@ -43,26 +43,22 @@ app.get("/users/:id", async (req, res) => {
 });
 
 //get multiple users
-app.post("/users", async(req,res) => {
-    try{
-        console.log(req.body)
-        const {
-            firstName,
-            lastName,
-            emailAddress,
-            username,
-        } = req.body
+app.post("/users", async (req, res) => {
+  try {
+    console.log(req.body);
+    const { firstName, lastName, emailAddress, username } = req.body;
 
-        const newUser = await client.user.create({
-            data:{firstName,lastName,emailAddress,username}
-        })
-        res.status(200).json("User created successfully", newUser);
-    } catch(error){
-        console.log(error)
-        res.status(500).json({message:"Error creating new user, please try again later"})
-    }
-})
-
+    const newUser = await client.user.create({
+      data: { firstName, lastName, emailAddress, username },
+    });
+    res.status(200).json("User created successfully", newUser);
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ message: "Error creating new user, please try again later" });
+  }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
