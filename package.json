@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Muchiri-cmd/Blog-API#readme",
   "dependencies": {
+    "@prisma/client": "^6.9.0",
     "express": "^5.1.0",
     "prettier": "^3.5.3"
   },
