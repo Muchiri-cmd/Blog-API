@@ -44,7 +44,7 @@ app.get("/users/:id", async (req, res) => {
   }
 });
 
-//get multiple users
+//create new users
 app.post("/users", async (req, res) => {
   try {
     console.log(req.body);
